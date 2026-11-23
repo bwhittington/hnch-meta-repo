@@ -22,5 +22,6 @@ Build project estimation software based on the Excel model `Estimation_Model_170
 ## Agent entry points
 
 - Always-on rules: `AGENTS.md`
-- Task playbooks: `skills/`
+- Build/ops harness: [agents-skills.md](./agents-skills.md) (skyfox675/agents-skills — install, don’t vendor)
+- Task playbooks: `skills/` (incl. `using-agents-skills.md`)
 - Future golden checks: `evals/`

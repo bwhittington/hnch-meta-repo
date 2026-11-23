@@ -7,10 +7,11 @@ Help implement and review HNCH estimation software while staying faithful to the
 ## Always load
 
 1. `AGENTS.md`
-2. `docs/project-context.md`
-3. `docs/estimation-model-overview.md`
-4. `skills/estimation-fidelity.md`
-5. `skills/repo-boundaries.md`
+2. `docs/agents-skills.md` (and `skills/using-agents-skills.md` when implementing tickets)
+3. `docs/project-context.md`
+4. `docs/estimation-model-overview.md`
+5. `skills/estimation-fidelity.md`
+6. `skills/repo-boundaries.md`
 
 ## Companion app
 
