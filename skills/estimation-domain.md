@@ -12,6 +12,7 @@ Help implement and review HNCH estimation software while staying faithful to the
 4. `docs/estimation-model-overview.md`
 5. `skills/estimation-fidelity.md`
 6. `skills/repo-boundaries.md`
+7. `skills/naysayer.md` (when reviewing or opening a PR)
 
 ## Companion app
 

@@ -23,5 +23,6 @@ Build project estimation software based on the Excel model `Estimation_Model_170
 
 - Always-on rules: `AGENTS.md`
 - Build/ops harness: [agents-skills.md](./agents-skills.md) (skyfox675/agents-skills — install, don’t vendor)
-- Task playbooks: `skills/` (incl. `using-agents-skills.md`)
+- Task playbooks: `skills/` (incl. `using-agents-skills.md`, **`naysayer.md`**)
+- **Merge gate:** every PR on `hnch` and `hnch-meta-repo` needs a naysayer pass before merge
 - Future golden checks: `evals/`

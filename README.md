@@ -11,9 +11,9 @@ This repository does **not** hold application code. Product code lives in:
 ## Layout
 
 ```
-AGENTS.md   Always-on rules: repo boundaries, Excel fidelity, toolkit pointer
+AGENTS.md   Always-on rules: repo boundaries, Excel fidelity, naysayer gate, toolkit pointer
 docs/       Durable domain truth + agents-skills adoption notes
-skills/     Thin HNCH task playbooks (incl. using-agents-skills)
+skills/     Thin HNCH task playbooks (naysayer, using-agents-skills, fidelity, …)
 evals/      Stub for golden Excel scenario checks (later)
 ```
 
@@ -22,8 +22,12 @@ evals/      Stub for golden Excel scenario checks (later)
 1. Install **agents-skills** in Cursor (marketplace plugin `agents-skills`, or point Cursor at the git repo). Details: [docs/agents-skills.md](./docs/agents-skills.md).
 2. Read `AGENTS.md`.
 3. Load domain facts from `docs/` (`project-context.md`, `estimation-model-overview.md`).
-4. Open the relevant playbook under `skills/` (start with `using-agents-skills.md` for ticket work).
+4. Open the relevant playbook under `skills/` (start with `using-agents-skills.md` for ticket work; **`naysayer.md` on every PR**).
 5. Implement product changes only in `hnch`.
+
+## naysayer (merge gate)
+
+**Every PR** on `hnch` and `hnch-meta-repo` requires a **naysayer** adversarial review before merge (`skills/naysayer.md`). Coordinator / dispatch should spawn it on PR open.
 
 ## Source model
 

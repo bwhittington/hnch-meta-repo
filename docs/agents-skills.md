@@ -34,9 +34,14 @@ Use the upstream GitHub command chain:
 2. `/gh-issue-groom` — groom acceptance and scope  
 3. `/gh-issue-recon` — recon the codebase against the issue  
 4. `/dispatch` — implement (opens PR via implementer agents)  
-5. `/rescue` — unstick a stuck PR or red CI when needed  
+5. **naysayer** — adversarial PR review (required before merge; spawn on PR open)  
+6. `/rescue` — unstick a stuck PR or red CI when needed  
 
 Type `/` in Cursor chat to list commands once the plugin is installed. Try a smoke issue after install (upstream example pattern: `/gh-issue …`).
+
+### naysayer vs agents-skills `reviewer`
+
+Upstream agents-skills includes a `reviewer` agent (severity-tagged adversarial diff review). HNCH keeps a named role **naysayer** (`skills/naysayer.md`) as the **merge gate** for every PR on `hnch` and `hnch-meta-repo`. Use the same skeptical style; do not skip naysayer because a generic reviewer already ran. Project coordinator / dispatch should spawn naysayer when a PR opens.
 
 Domain fidelity for estimation still comes from this meta-repo (`docs/estimation-model-overview.md`, `skills/estimation-fidelity.md`, etc.). Product edits land only in `hnch`.
 
@@ -48,4 +53,5 @@ For workbook fidelity work against `Estimation_Model_1702.xlsx`, the Anthropic *
 
 - Always-on rules: `AGENTS.md`
 - Thin playbook: `skills/using-agents-skills.md`
+- Adversarial PR gate: `skills/naysayer.md`
 - Domain overview: `docs/estimation-model-overview.md`

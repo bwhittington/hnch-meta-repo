@@ -7,10 +7,12 @@ Any HNCH implementation ticket, grooming, recon, dispatch, or stuck-PR rescue.
 ## Do
 
 1. Confirm the **agents-skills** toolkit is available in this Cursor session (plugin marketplace `agents-skills`, or Cursor pointed at https://github.com/skyfox675/agents-skills). If missing, stop and tell Brett to install it — do not vendor the upstream tree into git.
-2. Prefer the adopted flow for GitHub work: `/gh-issue` → `/gh-issue-groom` → `/gh-issue-recon` → `/dispatch` (and `/rescue` when stuck). Follow those command/agent patterns instead of inventing a parallel process.
+2. Prefer the adopted flow for GitHub work: `/gh-issue` → `/gh-issue-groom` → `/gh-issue-recon` → `/dispatch` → **naysayer** on PR open (and `/rescue` when stuck). Follow those command/agent patterns instead of inventing a parallel process.
 3. Load HNCH domain context from this meta-repo (`AGENTS.md`, `docs/`, other `skills/`) before changing estimation behavior.
 4. For Excel model inspection, use the Anthropic **`xlsx`** helper skill when available; stay faithful to `docs/estimation-model-overview.md`.
 5. Implement product code only in https://github.com/bwhittington/hnch. Keep domain docs and thin skills here.
+6. Do not merge without a **naysayer** pass (`skills/naysayer.md`) on both `hnch` and `hnch-meta-repo` PRs.
+
 
 ## Do not
 

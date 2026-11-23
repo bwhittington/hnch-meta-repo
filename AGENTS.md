@@ -4,6 +4,15 @@ Rules for any agent working on HNCH estimation. Load task playbooks from `skills
 
 **Builders should have [skyfox675/agents-skills](https://github.com/skyfox675/agents-skills) available** (Cursor plugin or git). See [docs/agents-skills.md](./docs/agents-skills.md) and [skills/using-agents-skills.md](./skills/using-agents-skills.md). That harness is shared tooling — not vendored into this repo.
 
+## naysayer (required on every PR)
+
+**Every PR** on `hnch` and `hnch-meta-repo` must get a **naysayer** pass before merge. See [skills/naysayer.md](./skills/naysayer.md).
+
+- naysayer = adversarial, skeptical reviewer (assume wrong until proven).
+- Project coordinator / `/dispatch` should spawn naysayer on PR open.
+- Related to agents-skills `reviewer`, but the HNCH gate keeps the name **naysayer**.
+- No merge without an explicit naysayer recommendation (`request-changes` resolved, or `approve-with-risks`).
+
 ## Repo boundaries
 
 | Repo | Owns |
@@ -27,7 +36,7 @@ Rules for any agent working on HNCH estimation. Load task playbooks from `skills
 
 ## Ticket flow (agents-skills)
 
-Prefer: `/gh-issue` → `/gh-issue-groom` → `/gh-issue-recon` → `/dispatch` (and `/rescue` when stuck). Details: `docs/agents-skills.md`.
+Prefer: `/gh-issue` → `/gh-issue-groom` → `/gh-issue-recon` → `/dispatch` (and `/rescue` when stuck). On PR open → **naysayer**. Details: `docs/agents-skills.md`.
 
 ## What belongs where
 
@@ -35,7 +44,7 @@ Prefer: `/gh-issue` → `/gh-issue-groom` → `/gh-issue-recon` → `/dispatch` 
 |------|-----|
 | `AGENTS.md` | Always-on rules (this file) |
 | `docs/` | Durable domain truth + toolkit pointer (`agents-skills.md`) |
-| `skills/` | Thin HNCH task playbooks |
+| `skills/` | Thin HNCH task playbooks (incl. `naysayer.md`) |
 | `evals/` | Future golden Excel scenario checks (stub for now) |
 
 Do not commit secrets, customer rate books, or the Excel binary. See `docs/source-model.md` for attach guidance.
