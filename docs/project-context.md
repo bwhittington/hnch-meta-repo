@@ -11,16 +11,16 @@ Build project estimation software based on the Excel model `Estimation_Model_170
 
 ## Constraints
 
-- Keep product code in `hnch`; keep prompts, agent context, and AI assets in `hnch-meta-repo`.
+- Keep product code in `hnch`; keep agent rules, skills, and durable domain docs in `hnch-meta-repo`.
 - Prefer fidelity to the Excel estimation model’s inputs, calculations, and outputs unless Brett asks otherwise.
 
 ## Source model
 
-- Workbook: `Estimation_Model_1702.xlsx` (see `context/excel-model/` for attach guidance).
-- Domain overview for agents: [estimation-model-overview.md](./estimation-model-overview.md).
+- Workbook: `Estimation_Model_1702.xlsx` — attach guidance in [source-model.md](./source-model.md).
+- Domain overview: [estimation-model-overview.md](./estimation-model-overview.md).
 
-## Agent entry points in this repo
+## Agent entry points
 
-- Prompts: `prompts/`
-- Role briefs: `agents/`
-- Local/source notes: `context/`
+- Always-on rules: `AGENTS.md`
+- Task playbooks: `skills/`
+- Future golden checks: `evals/`

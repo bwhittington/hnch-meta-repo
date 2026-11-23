@@ -1,49 +1,35 @@
 # HNCH meta-repo
 
-AI assets, agent context, and durable product notes for the **HNCH estimation software**.
+AI assets and agent context for the **HNCH estimation software**.
 
-This repository does **not** hold application code. Product code lives in the companion app repo:
+This repository does **not** hold application code. Product code lives in:
 
 - **App:** [bwhittington/hnch](https://github.com/bwhittington/hnch)
 - **This repo (meta):** [bwhittington/hnch-meta-repo](https://github.com/bwhittington/hnch-meta-repo)
 
-## Why two repos?
-
-| Repo | Owns |
-|------|------|
-| `hnch` | Estimation app (UI, calc engine, APIs, tests) |
-| `hnch-meta-repo` | Prompts, agent instructions, model notes, product context agents should load |
-
-Keep prompts and source-model notes here so app PRs stay focused on product code, and agents have a stable place for estimation-domain context.
-
 ## Layout
 
 ```
-docs/           Durable product & agent context (modes, phases, vocabulary)
-prompts/        Reusable prompt snippets for agents and workflows
-agents/         Agent role briefs / skill-style instructions
-context/        Local source notes (Excel model pointers — not secrets)
+AGENTS.md   Always-on rules: repo boundaries, Excel fidelity, what belongs where
+docs/       Durable domain truth (project context, model overview, source-model pointers)
+skills/     Task playbooks (estimation fidelity, repo boundaries, domain agent)
+evals/      Stub for golden Excel scenario checks (later)
 ```
 
-## How agents should use this repo
+## How to use
 
-1. Read `docs/project-context.md` for goals, constraints, and companion-repo links.
-2. Read `docs/estimation-model-overview.md` for Excel-faithful domain facts (modes, phases, staffing/pricing).
-3. Load prompts from `prompts/` and role briefs from `agents/` when running estimation-related tasks.
-4. Treat `context/` as optional local notes. Prefer documented pointers over committing large binaries or anything sensitive.
-5. Implement product changes only in `hnch`, using this repo as the source of domain intent.
+1. Read `AGENTS.md` first.
+2. Load domain facts from `docs/` (`project-context.md`, `estimation-model-overview.md`).
+3. Open the relevant playbook under `skills/` for the task at hand.
+4. Implement product changes only in `hnch`.
 
 ## Source model
 
-Behavior should stay faithful to the Excel estimation workbook (`Estimation_Model_1702.xlsx`) unless Brett says otherwise. The workbook may live in a Cursor Project store or a local path — see `context/excel-model/README.md` for how to attach it without dumping secrets into git.
+Behavior should stay faithful to `Estimation_Model_1702.xlsx` unless Brett says otherwise. How to attach the workbook without committing secrets: `docs/source-model.md`.
 
 ## Local sibling checkout (typical)
-
-On Brett’s machine these often sit side by side:
 
 ```
 repos/hnch
 repos/hnch-meta-repo
 ```
-
-Clone both if you need app + AI context together.
