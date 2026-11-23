@@ -14,15 +14,10 @@ Thumbs.db
 secrets/
 **/credentials*
 
-# Excel / binaries — keep pointers in context/, not large or sensitive workbooks by default
+# Excel / binaries — keep pointers in docs/, not large or sensitive workbooks by default
 *.xlsx
 *.xlsm
 *.xls
-!docs/**/*.md
-
-# Local symlinks / copies of the model under context
-context/excel-model/*.xlsx
-context/excel-model/*.xlsm
 
 # Python / Node leftovers if someone experiments locally
 __pycache__/
