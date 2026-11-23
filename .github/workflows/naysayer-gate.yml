@@ -1,0 +1,65 @@
+# Fails the PR check unless a naysayer review is present.
+# Looks for "## naysayer review" in PR reviews or issue comments.
+name: naysayer-gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+jobs:
+  naysayer-required:
+    if: >
+      github.event_name == 'pull_request' ||
+      github.event_name == 'pull_request_review' ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require naysayer review marker
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pull_number =
+              context.payload.pull_request?.number ||
+              context.payload.issue?.number;
+            if (!pull_number) {
+              core.setFailed('No pull request number in event payload.');
+              return;
+            }
+
+            const marker = /##\s*naysayer\s+review/i;
+
+            const reviews = await github.paginate(
+              github.rest.pulls.listReviews,
+              { owner, repo, pull_number, per_page: 100 }
+            );
+            const reviewHit = reviews.find((r) => marker.test(r.body || ''));
+
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              { owner, repo, issue_number: pull_number, per_page: 100 }
+            );
+            const commentHit = comments.find((c) => marker.test(c.body || ''));
+
+            if (reviewHit || commentHit) {
+              const where = reviewHit
+                ? `review by ${reviewHit.user?.login || 'unknown'}`
+                : `issue comment by ${commentHit.user?.login || 'unknown'}`;
+              core.info(`naysayer marker found (${where}).`);
+              return;
+            }
+
+            core.setFailed(
+              'No naysayer review found. Post a PR review or comment whose body starts with "## naysayer review" (see skills/naysayer/SKILL.md). ' +
+                'Coordinator/dispatch must spawn naysayer before merge.'
+            );

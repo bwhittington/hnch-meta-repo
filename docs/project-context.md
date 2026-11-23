@@ -17,12 +17,12 @@ Build project estimation software based on the Excel model `Estimation_Model_170
 ## Source model
 
 - Workbook: `Estimation_Model_1702.xlsx` — attach guidance in [source-model.md](./source-model.md).
-- Domain overview: [estimation-model-overview.md](./estimation-model-overview.md).
+- Domain overview (with provenance): [estimation-model-overview.md](./estimation-model-overview.md).
 
 ## Agent entry points
 
 - Always-on rules: `AGENTS.md`
-- Build/ops harness: [agents-skills.md](./agents-skills.md) (skyfox675/agents-skills — install, don’t vendor)
-- Task playbooks: `skills/` (incl. `using-agents-skills.md`, **`naysayer.md`**)
-- **Merge gate:** every PR on `hnch` and `hnch-meta-repo` needs a naysayer pass before merge
+- Build/ops harness: [agents-skills.md](./agents-skills.md) (install, don’t vendor)
+- Agent Skills: `skills/*/SKILL.md` (Cursor: `.cursor/skills/`)
+- **Merge gate:** naysayer on every PR — [naysayer-enforcement.md](./naysayer-enforcement.md)
 - Future golden checks: `evals/`

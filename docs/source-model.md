@@ -24,11 +24,11 @@ Behavioral summary for agents: [estimation-model-overview.md](./estimation-model
 - Commit secrets or customer rate books.
 - Treat broken sheets (`Agile`, `Staffing w Built In CO` `#REF!`) as required product behavior without confirmation.
 
-## Machine note (Brett / FatherBox2026)
+## Typical local layout (example — adjust per machine)
 
-Typical repos:
+```
+repos/hnch
+repos/hnch-meta-repo
+```
 
-- App: `C:\Users\brett\repos\hnch`
-- Meta: `C:\Users\brett\repos\hnch-meta-repo`
-
-Update this note if the workbook’s local path is standardized later.
+Record the workbook’s real path in a local note outside git if needed; do not commit customer workbooks.
