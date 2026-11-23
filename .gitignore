@@ -1,0 +1,30 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+**/credentials*
+
+# Excel / binaries — keep pointers in context/, not large or sensitive workbooks by default
+*.xlsx
+*.xlsm
+*.xls
+!docs/**/*.md
+
+# Local symlinks / copies of the model under context
+context/excel-model/*.xlsx
+context/excel-model/*.xlsm
+
+# Python / Node leftovers if someone experiments locally
+__pycache__/
+node_modules/
+.venv/
